@@ -1,26 +1,38 @@
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <rick-header id="header" class = "rick-header"/>
+    <router-view/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
+  import RickHeader from "./components/header/Header.vue"
+  export default {
+  name: 'app',
   components: {
-    HelloWorld
-  }
+    RickHeader
+  },
+
 }
 </script>
 
+
+
 <style>
+
+.rick-header {
+  position:fixed; 
+  width: 100%;
+  opacity: 1;
+  z-index: 99999;
+  background-color: white;
+  top:0;
+  margin-bottom: 10%;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  padding-top: 100px;
+  color: #324B72 !important;
+  padding: auto;
+  overflow: auto;
 }
 </style>
