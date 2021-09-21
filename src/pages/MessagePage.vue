@@ -15,7 +15,8 @@
           <div v-if="validMessage() === false && this.messageInput.touched" class = "error">Please enter the correct message</div>
       </div>
       <div class = "mb-3">
-          <rick-select @select = "setSelect" @touch= "setTouch" v-if="this.characters.length > 0" v-bind:characters="characters" v-bind:text="text"/>
+          <rick-select @select = "setSelect" @touch= "setTouch" v-if="this.characters.length > 0" v-bind:characters="characters" v-bind:text="text">
+          </rick-select>
           <div v-if="this.characterInput.character === null && this.characterInput.touched" class = "error">Please choose the character</div>
       </div>
       <div class="form-check form-check-inline">
@@ -31,22 +32,22 @@
 
 <script>
 export default {
-  name: 'message',
+  name: 'message-page',
   data() {
     return {
       text: "Pick a character",
       characters: null,
       errors: [],
       titleInput: {
-        title: null,
+        title: " ",
         touched: false,
       },
       messageInput: {
-        message: null,
+        message: " ",
         touched: false
       },
       characterInput: {
-        character: null,
+        character: " ",
         img: null,
         touched: false
       },

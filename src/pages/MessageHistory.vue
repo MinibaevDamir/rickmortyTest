@@ -14,14 +14,14 @@
     <div class = "title">
        Message History
     </div>
-    <rick-accordion v-for="message in messages" :key="message.id" v-bind:message="message" :id="'messages-for-' + message.date"/>
-
+    <rick-accordion v-for="message in messages" :key="message.id" v-bind:message="message" :id="'messages-for-' + message.date">
+    </rick-accordion>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'messageHistory',
+  name: 'message-history',
   data() {
     return {
       date: [],
