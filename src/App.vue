@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import RickHeader from "./components/header/Header.vue"
+  import RickHeader from "@/components/header/Header.vue"
   export default {
   name: 'app',
   components: {

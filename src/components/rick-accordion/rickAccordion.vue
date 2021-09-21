@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div v-if="message.Quickspot === true" class = "quickspot-header">
-                            <span><img src = "../../assets/successful.png"/> </span>
+                            <span><img src = "@/assets/successful.png"/> </span>
                             <span class = "quickspot-element">Using Quickspot™</span>
                         </div>
                     </div>

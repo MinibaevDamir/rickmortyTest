@@ -1,13 +1,13 @@
 <template>
-    <div class = "calendar" v-if="date.length">
-      <a class  = "days" @click="anchorClick" v-for="day in date" :key="day.id" :href="'#messages-for-' + day">
-       <img src = "../assets/chevron.svg" class = "chevron">
-        {{ moment(day) }}
-      </a>
-    </div>
+  <div class = "calendar" v-if="date.length">
+    <a class  = "days" @click="anchorClick" v-for="day in date" :key="day.id" :href="'#messages-for-' + day">
+      <img src = "@/assets/chevron.svg" class = "chevron">
+      {{ moment(day) }}
+    </a>
+  </div>
   <div id = "messageHistory" class = "messageHistory" @scroll="anchorScroll">
     <div class = "sent" v-bind:class="{active: activate}">
-      Message sent successfully <img src = "../assets/successful.png"> 
+      Message sent successfully <img src = "@/assets/successful.png"> 
     </div>
     <div class = "title">
        Message History
@@ -89,7 +89,7 @@ export default {
     RickAccordion
   }
 }
-import RickAccordion from "../components/rick-accordion/rickAccordion.vue"
+import RickAccordion from "@/components/rick-accordion/rickAccordion.vue"
 import moment from "moment"
 </script>
 
@@ -112,7 +112,6 @@ import moment from "moment"
       margin-top: 10%;
       margin-left: 70%;
       border: 5px solid ;
-      /* background-color: whitesmoke; */
       padding: 12px 18px;
       width: 300px;
       height: 200px;

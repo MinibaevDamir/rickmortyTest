@@ -102,7 +102,7 @@ export default {
   }
 }
 import axios from "axios"
-import rickSelect from "../components/rick-select/rickSelect.vue"
+import rickSelect from "@/components/rick-select/rickSelect.vue"
 </script>
 
 <style scoped>
