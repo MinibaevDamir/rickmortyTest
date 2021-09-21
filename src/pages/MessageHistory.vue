@@ -5,7 +5,7 @@
       {{ moment(day) }}
     </a>
   </div>
-  <div id = "messageHistory" class = "messageHistory" @scroll="anchorScroll">
+  <div id = "messageHistory" class = "messageHistory">
     <div class = "sent" v-bind:class="{active: activate}">
       Message sent successfully <img src = "@/assets/successful.png"> 
     </div>
