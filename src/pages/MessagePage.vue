@@ -47,7 +47,7 @@ export default {
         touched: false
       },
       characterInput: {
-        character: " ",
+        character: null,
         img: null,
         touched: false
       },
