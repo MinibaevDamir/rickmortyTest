@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       date: [],
-      messages: JSON.parse(localStorage.getItem('messages')).sort(this.sortByDate) || [],
+      messages: [],
       activate: false
     }
   },
@@ -83,8 +83,11 @@ export default {
          }
     });
   },
-  
   created() {
+    let messages = JSON.parse(localStorage.getItem('messages'))
+    if(messages) {
+      this.messages = messages.sort(this.sortByDate)
+    }
     this.messages.map(element => this.date.push(element.date))
     this.date = this.uniq(this.date)
   },
