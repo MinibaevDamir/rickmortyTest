@@ -1,5 +1,5 @@
 <template>
-    <div class = "calendar">
+    <div class = "calendar" v-if="date.length">
 
       <a class = "days" v-for="day in date" :key="day.id" :href="'#messages-for-' + day">
        <img src = "../assets/chevron.svg" class = "chevron">
