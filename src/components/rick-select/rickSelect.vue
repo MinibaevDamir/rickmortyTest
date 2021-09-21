@@ -18,12 +18,23 @@ export default {
     }
   },
   methods: {
-    touched: function() {
+    touched: function(e) {
+      e.target.classList.toggle("active");
+
+      let panel = e.target.nextElementSibling;
+
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
       this.$emit('touch', {
         touched: true
       })
     },
     selected: function(e) {
+      e.target.parentElement.previousElementSibling.innerHTML = e.target.dataset.value;
+      e.target.parentElement.style = "none"
       this.$emit('select', {
         character: e.target.dataset.value,
         img: e.target.dataset.img
@@ -40,30 +51,6 @@ export default {
         required: true
     }
   },
-  mounted(){
-    let acc = document.getElementsByClassName("accordion");
-    let i;
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            let panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
-    }
-
-    let options = document.getElementsByClassName("option");
-    for(let o = 0; o < options.length; o++) {
-        options[o].addEventListener('click', function(e) {
-        if(e)
-  	        this.parentElement.previousElementSibling.innerHTML = this.dataset.value;
-            this.parentElement.style = "none"
-        })
-    }
-  }
 }
 
 </script>

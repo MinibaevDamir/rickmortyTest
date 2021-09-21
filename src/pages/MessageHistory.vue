@@ -1,13 +1,11 @@
 <template>
     <div class = "calendar" v-if="date.length">
-
-      <a class = "days" v-for="day in date" :key="day.id" :href="'#messages-for-' + day">
+      <a class  = "days" @click="anchorClick" v-for="day in date" :key="day.id" :href="'#messages-for-' + day">
        <img src = "../assets/chevron.svg" class = "chevron">
         {{ moment(day) }}
       </a>
     </div>
-  <div id = "messageHistory" class = "messageHistory">
-    
+  <div id = "messageHistory" class = "messageHistory" @scroll="anchorScroll">
     <div class = "sent" v-bind:class="{active: activate}">
       Message sent successfully <img src = "../assets/successful.png"> 
     </div>
@@ -56,27 +54,23 @@ export default {
       }
       return out;
     },
-     moment: function (date) {
+    moment: function (date) {
        return moment(date.split('.').join('-'), "DD-MM-YYYY").format('DD MMM YY');
-    }
+    },
+    anchorClick(e) {
+      const blockID = e.target.getAttribute('href').substr(1)
+      document.getElementById(blockID).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    },
   },
   mounted() {
     const anchors = document.querySelectorAll('a[href*="#"]')
     const messages = document.querySelectorAll('div.accordion')
-    for (let anchor of anchors) {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault()
-        const blockID = anchor.getAttribute('href').substr(1)
-    
-        document.getElementById(blockID).scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-          })
-      })
-    }
     window.addEventListener('scroll', () => {
       let index = messages.length;
-       while(--index && window.scrollY + 50  < messages[index].offsetTop) {}
+       while(--index && window.scrollY - 20  < messages[index].offsetTop) {}
          anchors.forEach((a) => a.classList.remove('active'));
          if(anchors[index] && anchors[index].classList) {
             anchors[index].classList.add('active');  
